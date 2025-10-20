@@ -1,0 +1,23 @@
+{
+  "name": "weather-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "redis": "^5.8.3",
+    "telebot": "^1.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
