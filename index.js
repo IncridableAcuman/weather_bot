@@ -1,16 +1,16 @@
 const express = require("express");
 const axios = require("axios");
 const redis = require("redis");
-const Telebot = require("telebot");
+const {Telegraf} = require("telegraf");
 require("dotenv").config();
 
 const telebotToken = process.env.TELEBOT_TOKEN || null;
 
 const app = express();
-const bot = new Telebot(telebotToken);
+const bot = new Telegraf(telebotToken);
 
-bot.on("text", (msg) => {
-  msg.reply.text(msg.text);
-});
+bot.start((msg)=>msg.reply("Hi"));
+bot.launch();
 
-bot.start();
+process.once("SIGINT",()=>bot.stop());
+process.once("SIGTERM",()=>bot.stop());
