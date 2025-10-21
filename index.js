@@ -1,5 +1,4 @@
 const axios = require("axios");
-const redis = require("redis");
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const sendWeather = require("./sendWeather");
@@ -44,11 +43,15 @@ bot.hears("Others", async (msg) => {
 });
 
 bot.on("text", async (ctx) => {
-  const state = userState[ctx.from.id];
-  if (state === "awating_place") {
-    const place = ctx.message.text;
-    await sendWeather(ctx, place);
-    delete userState[ctx.from.id];
+  try {
+    const state = userState[ctx.from.id];
+    if (state === "awating_place") {
+        const place = ctx.message.text;
+        await sendWeather(ctx, place);
+        delete userState[ctx.from.id];
+    }
+  } catch (error) {
+    ctx.reply("No such place found");
   }
 });
 

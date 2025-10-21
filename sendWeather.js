@@ -6,5 +6,6 @@ module.exports = async function sendWeather(ctx, city) {
     return ctx.replyWithMarkdown(messageData);
   } catch (error) {
     throw new Error(error);
+    console.log(error);
   }
 };
