@@ -13,7 +13,7 @@ bot.help((msg)=>msg.reply("Yordam xizmati hozircha ishlamaydi."));
 
 bot.command("start",(ctx)=>{
     return ctx.reply(
-        "Assalomu aleykum",
+        "Assalomu aleykum, Enter a place:",
         Markup.keyboard([
             ["Uzbekistan","Tashkent"],
             ['Kharezm',"Urgench"],
@@ -26,6 +26,41 @@ bot.command("start",(ctx)=>{
 });
 
 bot.hears("Uzbekistan",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Tashkent",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Kharezm",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Urgench",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Khiva",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Bukhara",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Samarkand",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
+bot.hears("Others",async (msg)=>{
     const messageData = await getWeather(msg.message.text);
    return msg.reply(messageData);
 });

@@ -7,6 +7,6 @@ module.exports = function formatWeather(data) {
     💨Wind Speed: ${data.wind.speed} m/s
     ⛅️Weather conditions: ${data.weather[0].description}
 
-    Coordinates: [${data.coord.lon},${data.coord.lat}]
+    Coordinates: [${data.coord.lon.toFixed(1)},${data.coord.lat.toFixed(1)}]
     `;
 };
