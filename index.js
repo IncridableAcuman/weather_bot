@@ -14,7 +14,7 @@ bot.command("start", (ctx) => {
     "Assalomu aleykum",
     Markup.keyboard([
       ["Uzbekistan", "Tashkent"],
-      ["Khorezm", "Urgench"],
+      ["Nukus", "Urgench"],
       ["Khiva", "Bukhara"],
       ["Samarkand", "Others"],
     ])
@@ -26,7 +26,7 @@ bot.command("start", (ctx) => {
 [
   "Uzbekistan",
   "Tashkent",
-  "Khorezm",
+  "Nukus",
   "Urgench",
   "Khiva",
   "Bukhara",
