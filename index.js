@@ -2,10 +2,12 @@ const axios = require("axios");
 const redis = require("redis");
 const {Telegraf,Markup} = require("telegraf");
 require("dotenv").config();
+const getWeather=require("./getWeather");
 
 const telebotToken = process.env.TELEBOT_TOKEN || null;
 
 const bot = new Telegraf(telebotToken);
+
 
 bot.help((msg)=>msg.reply("Yordam xizmati hozircha ishlamaydi."));
 
@@ -13,12 +15,21 @@ bot.command("start",(ctx)=>{
     return ctx.reply(
         "Assalomu aleykum",
         Markup.keyboard([
-            ["Uzbekistan","Tashkent"]
+            ["Uzbekistan","Tashkent"],
+            ['Kharezm',"Urgench"],
+            ["Khiva","Bukhara"],
+            ['Samarkand',"Others"]
         ])
         .oneTime()
         .resize()
     );
 });
+
+bot.hears("Uzbekistan",async (msg)=>{
+    const messageData = await getWeather(msg.message.text);
+   return msg.reply(messageData);
+});
+
 bot.launch();
 
 process.once("SIGINT",()=>bot.stop());
