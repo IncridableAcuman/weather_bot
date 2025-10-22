@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const sendWeather = require("./sendWeather");
